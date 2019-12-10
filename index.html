@@ -1,8 +1,4 @@
-<!--
-CandyCrush
-Your Name: Dieu Do  
-Collaborators: None
--->
+
 <!DOCTYPE html>
 <html>
 <!--
@@ -13,12 +9,16 @@ Collaborators: None
 
 <head>
 <meta charset="utf-8">
-<title>CandyCrush</title>
+<title>CoinCrush</title>
 
 <!-- Load style sheets -->
 <link rel="stylesheet" href=
   "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
 
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    
+    
 <link rel="stylesheet" href="mainLayout.css">
 
 <!-- Use mobile-aware viewport -->
@@ -40,7 +40,7 @@ Collaborators: None
 // By default, the first board loaded by your page will be the same 
 // each time you load (which is accomplished by "seeding" the random
 // number generator. This makes testing (and grading!) easier!
-Math.seedrandom(0);
+Math.seedrandom(1);
 
 
 // A short jQuery extension to read query parameters from the URL.
@@ -254,6 +254,9 @@ function checkMove(dir){
   // }
   console.log(mouseDownLocation);
   console.log(mouseUpLocation);
+
+// Add a counter of how many move a person has made.
+
   var inputRow;
   var inputCol = col_array.indexOf(mouseDownLocation.charAt(0));
   if(mouseDownLocation.length < 3)
@@ -764,12 +767,12 @@ function load_img(imgToLoad) {
 
 function drawBoard() {
     
-    load_img(['./graphics/blue-candy.png', './graphics/blue-special.png', 
-                './graphics/green-candy.png', './graphics/green-special.png',
-                './graphics/orange-candy.png', './graphics/orange-special.png',
-                './graphics/purple-candy.png', './graphics/purple-special.png',
-                './graphics/red-candy.png', './graphics/red-special.png',
-                './graphics/yellow-candy.png', './graphics/color-bomb.png']);
+    load_img(['./graphics/blue-candy.svg', './graphics/blue-special.png', 
+                './graphics/green-candy.svg', './graphics/green-special.png',
+                './graphics/orange-candy.svg', './graphics/orange-special.png',
+                './graphics/purple-candy.svg', './graphics/purple-special.png',
+                './graphics/red-candy.svg', './graphics/red-special.png',
+                './graphics/yellow-candy.svg', './graphics/color-bomb.png']);
 
     var size = 320/board.getSize();
     var candyHeight = size;
@@ -849,12 +852,12 @@ function drawBoard() {
       <!-- <canvas class ="d-flex-column mx-auto align-self-center" id ='Canvas' width='320' height='320' style ='border:2px solid #d3d3d3; width:320px;height:320px; z-index:-1;' > -->
       <canvas class ="d-flex-column align-self-center" id ='Canvas' width='320' height='320' style:'z-index:-1; position:absolute;'>
         Sorry browser doesn't support Canvas
-        <img id ='blue-candy'  src ='./graphics/blue-candy.png'>
-        <img id ='green-candy'  src ='./graphics/green-candy.png'>
-        <img id ='orange-candy'  src ='./graphics/orange-candy.png'>
-        <img id ='red-candy'  src ='./graphics/red-candy.png'>
-        <img id ='purple-candy'  src ='./graphics/purple-candy.png'>
-        <img id ='yellow-candy'  src ='./graphics/yellow-candy.png'>
+        <img id ='blue-candy'  src ='./graphics/blue-candy.svg'>
+        <img id ='green-candy'  src ='./graphics/green-candy.svg'>
+        <img id ='orange-candy'  src ='./graphics/orange-candy.svg'>
+        <img id ='red-candy'  src ='./graphics/red-candy.svg'>
+        <img id ='purple-candy'  src ='./graphics/purple-candy.svg'>
+        <img id ='yellow-candy'  src ='./graphics/yellow-candy.svg'>
         <img id ='blue-special'  src ='./graphics/blue-special.png'>
         <img id ='green-special'  src ='./graphics/green-special.png'>
         <img id ='orange-special'  src ='./graphics/orange-special.png'>
