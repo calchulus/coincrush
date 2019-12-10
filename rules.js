@@ -148,15 +148,25 @@ var Rules = function(board)
   */
   this.removeCrushes = function(setOfSetsOfCrushes)
   {
+      var single_move_score_counter = 0;
     for (var j = 0; j < setOfSetsOfCrushes.length; j++)
     {
       var set = setOfSetsOfCrushes[j];
+        
       for (var k = 0; k < set.length; k++)
       {
         if (scoring) board.incrementScore(set[k], set[k].row, set[k].col);
+          single_move_score_counter += 1;
         board.remove(set[k]);
       }
+console.log("one step at a time");
+        console.log(single_move_score_counter);
     }
+      console.log("finished");
+      document.getElementById("quadratic_score").innerHTML += single_move_score_counter;
+      console.log(single_move_score_counter);
+       document.getElementById('avg').innerHTML = Number(document.getElementById('score').innerHTML)/ Number(document.getElementById('move_counter').innerHTML);
+      
   }
 
   /*
@@ -204,7 +214,7 @@ var Rules = function(board)
 
 
   /*
-  *
+  * HINTS (SHOW HELP)
   *  If there is a valid move, returns an object with two properties:
   *  candy: a Candy that can be moved
   *  direction: the direction that it can be moved.
@@ -282,7 +292,7 @@ var Rules = function(board)
   this.createSpecifiedBoard = function(boardSpec) {
 
     color_dict = {'r':'red', 'o':'orange', 'y':'yellow', 'g':'green','b':'blue','p':'purple'}
-
+    var counter = 0;
     var numChars=0;
 
     boardSpec.map(function (i) { return numChars+=i.length });
@@ -296,7 +306,13 @@ var Rules = function(board)
       for (var row = 0; row < board.boardSize; row++)
       {
         if (board.getCandyAt(row, col) == null)
+        
         {
+            counter += 1;
+            console.log(counter);
+            console.log("WAT");
+            document.getElementById("move_counter").innerHTML += 1;
+console.log("uno");
            var color = color_dict[boardSpec[row].charAt(col)];
            board.addCandy(color, row, col);
         }
@@ -362,7 +378,11 @@ var Rules = function(board)
   */
   this.numberCandiesCrushedByMove = function(fromCandy, direction)
   {
-    return this.getCandiesToCrushGivenMove(fromCandy, direction).length;
+      var points = this.getCandiesToCrushGivenMove(fromCandy, direction).length;
+      console.log("YO");
+      console.log(this.getCandiesToCrushGivenMove(fromCandy, direction).length);
+          document.getElementById('score_list').innerHTML += points + ", ";
+    return points;
   }
 
   /*

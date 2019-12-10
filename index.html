@@ -40,7 +40,7 @@
 // By default, the first board loaded by your page will be the same 
 // each time you load (which is accomplished by "seeding" the random
 // number generator. This makes testing (and grading!) easier!
-Math.seedrandom(1);
+Math.seedrandom(2);
 
 
 // A short jQuery extension to read query parameters from the URL.
@@ -102,6 +102,7 @@ $(document).ready(function()
 // add a candy to the board
 $(board).on('add', function(e, info)
 {
+
   // Your code here.
 });
 
@@ -127,7 +128,9 @@ $(board).on('remove', function(e, info)
 $(board).on('scoreUpdate', function(e, info)
 {
   // Your code here. To be implemented in pset 2.
-  $("#score").html(board.getScore());
+    var score = board.getScore();
+  $("#score").html(score);
+     
 });
 
 // keyboard events arrive here
@@ -254,7 +257,9 @@ function checkMove(dir){
   // }
   console.log(mouseDownLocation);
   console.log(mouseUpLocation);
-
+    var prev_total = Number(document.getElementById('move_counter').innerHTML);
+    document.getElementById('move_counter').innerHTML = prev_total + 1;
+ 
 // Add a counter of how many move a person has made.
 
   var inputRow;
@@ -843,6 +848,19 @@ function drawBoard() {
     <div class="col-md-3 d-flex flex-column align-self-center" id="firstColumn">
       <div class="p-2"><h2 class="text-center"><b>Candy Crush</b></h2></div>
       <div class="p-2 text-center" id='score'><h3>Score</h3></div>
+       <div class="p-2 text-center"><h3>Quadratic Score</h3>
+      <span id='quadratic_score'>0 
+        </span></div> 
+
+        
+      <div class="p-2 text-center" id='score_list' style="height: 10%;"><h3>Score List</h3></div>
+      <div class="p-2 text-center"><h3>MoveCounter</h3>
+    <span id="move_counter">0</span> </div>
+        
+           <div class="p-2 text-center"><h3>Avg</h3>
+    <span id="avg">0</span> </div>
+        
+        
       <div class="p-2 text-center"><button class="btn newGameBtn" id="newGame">New Game</button></div>
       <div class="p-2 text-center"><button class="btn helpBtn" id="helpBtn">Show Help</button></div>
     </div>
